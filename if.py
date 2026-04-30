@@ -1,8 +1,10 @@
 nilai = input("Masukkan nilai: ")
 nilai = int(nilai)
 
+if nilai < 0 or nilai > 100:
+    print("Nilai tidak valid. Nilai harus antara 0 dan 100.")
 
-if nilai >= 90:
+elif nilai >= 90:
     print("Nilai A")
 elif nilai >= 80:
     print("Nilai B")
