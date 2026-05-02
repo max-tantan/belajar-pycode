@@ -33,7 +33,7 @@ fast-api-web/
 Masuk ke folder project:
 
 ```bash
-cd fastapi-app
+cd fast-api-web
 ```
 
 Jalankan server:
