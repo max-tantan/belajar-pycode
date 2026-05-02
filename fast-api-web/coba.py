@@ -30,9 +30,13 @@ def hash_password(password):
 def register(user: User):
     users = load_users()
 
-    if user.username in usaers:
+    if user.username in users:
         raise(HTTPException(status_code=400, detail="Username sudah digunakan"))
     
+    hashed_password = hash_password(user.password)
+    users[user.username] = hashed_password
+    save_users(users)
+
 #login endpoint
 @app.post("/login")
 def login(user: User):
