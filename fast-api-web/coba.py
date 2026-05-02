@@ -33,3 +33,20 @@ def register(user: User):
     if user.username in usaers:
         raise(HTTPException(status_code=400, detail="Username sudah digunakan"))
     
+#login endpoint
+@app.post("/login")
+def login(user: User):
+    users = load_users()
+
+    if user.username not in users:
+        raise HTTPException(status_code=400, detail="Username tidak ditemukan")
+    
+    hashed_input_password = hash_password(user.password)
+    stored_hashed_password = users[user.username]
+
+    if hashed_input_password == stored_hashed_password:
+        return {"message": "Login berhasil"}
+    else:
+        raise HTTPException(status_code=400, detail="Password salah")
+    
+    return {"message": f"selamat datang, {user.username}!"}
