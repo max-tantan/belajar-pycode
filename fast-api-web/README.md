@@ -39,7 +39,7 @@ cd fastapi-app
 Jalankan server:
 
 ```bash
-uvicorn app.main:app --reload
+uvicorn fast-api-web.coba:app --reload
 ```
 
 Jika berhasil, akan muncul:
